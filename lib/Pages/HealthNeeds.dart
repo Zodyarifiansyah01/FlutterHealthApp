@@ -1,77 +1,53 @@
-// import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
-// import 'package:healthapp/Pages/myData.dart';
+import 'package:flutter/material.dart';
+import 'package:healthapp/Pages/myData.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-// class HealthNeeds extends StatelessWidget {
-//   const HealthNeeds({Key? key}) : super(key: key);
+class HealthNeeds extends StatelessWidget {
+  const HealthNeeds({
+    super.key,
+  });
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: ListView.builder(
-//         itemCount: customicons.length,
-//         itemBuilder: (BuildContext context, int index) {
-//           return Column(
-//             children: [
-//               Container(
-//                 width: 60,
-//                 height: 60,
-//                 padding: const EdgeInsets.all(15),
-//                 decoration: BoxDecoration(
-//                   color: Theme.of(context)
-//                       .colorScheme
-//                       .primaryContainer
-//                       .withOpacity(0.4),
-//                   shape: BoxShape.circle,
-//                 ),
-//                 child: Image.asset(
-//                   customicons[index].image,
-//                 ),
-//               ),
-//               const SizedBox(height: 6),
-//               Text(customicons[index].title)
-//             ],
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
-
-
-
-
-
-// class HealthNeeds extends StatelessWidget {
-//   const HealthNeeds({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Row(
-//       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//       children: List.generate(customicons.length, (index) {
-//         return Column(
-//           children: [
-//             Container(
-//               width: 60,
-//               height: 60,
-//               padding: const EdgeInsets.all(15),
-//               decoration: BoxDecoration(
-//                 color: Theme.of(context)
-//                     .colorScheme
-//                     .primaryContainer
-//                     .withOpacity(0.4),
-//                 shape: BoxShape.circle,
-//               ),
-//               child: Image.asset(
-//                 customicons[index].image,
-//               ),
-//             ),
-//             const SizedBox(height: 6),
-//             Text(customicons[index].title)
-//           ],
-//         );
-//       }),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 80,
+      child: ListView.builder(
+        physics: BouncingScrollPhysics(),
+        itemCount: customicons.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (BuildContext context, int index) {
+          return Column(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 50,
+                    height: 50,
+                    margin: EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: Colors.blueAccent[100],
+                    ),
+                    child: Center(
+                      child: Image.asset(
+                        customicons[index]['image'],
+                        width: 20,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              Text(
+                customicons[index]['title'],
+                style: GoogleFonts.poppins(fontSize: 12),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
