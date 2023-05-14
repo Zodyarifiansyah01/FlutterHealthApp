@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:healthapp/Pages/HealthNeeds.dart';
 import 'package:healthapp/Pages/myData.dart';
+import 'NearbyDoctor.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -73,11 +74,12 @@ class HomePage extends StatelessWidget {
                 const SizedBox(
                   height: 18.0,
                 ),
+
+                //  Untuk Membuat kotak profile paling awal
                 Stack(
                   children: [
                     Container(
                       width: double.infinity,
-                      height: 120,
                       decoration: BoxDecoration(
                         color: Colors.blue[700],
                         borderRadius: BorderRadius.all(
@@ -126,6 +128,7 @@ class HomePage extends StatelessWidget {
                                   height: 14.0,
                                 ),
                                 Container(
+                                  margin: EdgeInsets.only(left: 55),
                                   padding: EdgeInsets.symmetric(
                                       vertical: 4, horizontal: 8.0),
                                   decoration: BoxDecoration(
@@ -133,37 +136,49 @@ class HomePage extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(10)),
                                   child: Row(
                                     children: [
-                                      const Icon(
-                                        Icons.calendar_month_outlined,
-                                        color: Colors.white54,
-                                        size: 18.0,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 8, right: 18.0),
-                                        child: Text(
-                                          'Today',
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 10,
-                                              color: Colors.white54,
-                                              fontWeight: FontWeight.w600),
+                                      Opacity(
+                                        opacity: 0.7,
+                                        child: Icon(
+                                          Icons.calendar_month_outlined,
+                                          color: Colors.white,
+                                          size: 18.0,
                                         ),
                                       ),
-                                      const Icon(
-                                        Icons.access_time_rounded,
-                                        color: Colors.white54,
-                                        size: 18.0,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: 8,
+                                      Opacity(
+                                        opacity: 0.7,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8, right: 18.0),
+                                          child: Text(
+                                            'Today',
+                                            style: GoogleFonts.poppins(
+                                                fontSize: 10,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w600),
+                                          ),
                                         ),
-                                        child: Text(
-                                          '12.00 AM - 22 AM',
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 10,
-                                              color: Colors.white54,
-                                              fontWeight: FontWeight.w600),
+                                      ),
+                                      Opacity(
+                                        opacity: 0.7,
+                                        child: Icon(
+                                          Icons.access_time_rounded,
+                                          color: Colors.white,
+                                          size: 18.0,
+                                        ),
+                                      ),
+                                      Opacity(
+                                        opacity: 0.7,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                            left: 8,
+                                          ),
+                                          child: Text(
+                                            '12.00 AM - 22 AM',
+                                            style: GoogleFonts.poppins(
+                                                fontSize: 10,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w600),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -178,7 +193,7 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(
-                  height: 24.0,
+                  height: 32.0,
                 ),
                 Text(
                   'Health Needs',
@@ -187,7 +202,20 @@ class HomePage extends StatelessWidget {
                 const SizedBox(
                   height: 8.0,
                 ),
-                HealthNeeds(),
+
+                HealthNeeds(), //  Widget di bagian file baru
+
+                const SizedBox(
+                  height: 32.0,
+                ),
+                Text(
+                  'Nearby Doctor',
+                  style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(
+                  height: 14.0,
+                ),
+                NearbyDoctor(),
               ],
             ),
           ),
